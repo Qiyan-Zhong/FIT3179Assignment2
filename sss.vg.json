@@ -1,0 +1,35 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 800,
+  "height": 600,
+  "title": {
+    "text": "FIFA World Cup Home Team Goals VS Away Team Goals",
+    "fontSize": 25
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/Qiyan-Zhong/FIT3179Assignment2/main/WorldCupMatches.csv"
+  },
+ "transform": [
+    {
+      "aggregate": [{
+       "op": "sum",
+       "field": "Home Team Goals",
+       "as": "HG"
+      }],
+      "groupby": ["Year"]
+    }
+  ],
+  "mark": "line",
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "temporal"
+    },
+    "y": {
+      "field": "HG",
+      "type": "quantitative"
+    }
+  }
+    
+  
+}
