@@ -6,34 +6,46 @@
     "text": "Football club transfer fee from 2000 to 2019",
     "fontSize": 25
   },
-  "data": {"url": "https://raw.githubusercontent.com/Qiyan-Zhong/FIT3179WEEK10/main/top250-00-19%20(1).csv"},
+  "data": {
+    "url": "https://raw.githubusercontent.com/Qiyan-Zhong/FIT3179WEEK10/main/top250-00-19%20(1).csv"
+  },
   "transform": [
     {
-      "aggregate": [{
-       "op": "sum",
-       "field": "Transfer_fee",
-       "as": "Total_Transfer_Fee"
-      }],
+      "aggregate": [
+        {"op": "sum", "field": "Transfer_fee", "as": "Total_Transfer_Fee"}
+      ],
       "groupby": ["Team_to"]
     },
-    {"filter":"datum.Total_Transfer_Fee>300000000"}
+    {"filter": "datum.Total_Transfer_Fee>300000000"}
   ],
-  "layer":[
-    {"mark": "circle",
-    "encoding": {
-      "x": {"field": "Team_to","type":"ordinal","title":"Team"},
-      "y": {"field": "Total_Transfer_Fee", "type": "quantitative" 
-  },
-      "color":{"field":"Total_Transfer_Fee","type": "quantitative"},
-      "size":{"field":"Total_Transfer_Fee","type": "quantitative","scale":{"type": "threshold",
+  "layer": [
+    {
+      "mark": "circle",
+      "encoding": {
+        "x": {"field": "Team_to", "type": "ordinal", "title": "Team"},
+        "y": {"field": "Total_Transfer_Fee", "type": "quantitative"},
+        "color": {"field": "Total_Transfer_Fee", "type": "quantitative"},
+        "size": {
+          "field": "Total_Transfer_Fee",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
             "domain": [500000000, 1000000000, 1500000000, 2000000000],
-            "range": [100, 200, 300, 400, 500]}},
-  "tooltip":[
-      {"field":"Total_Transfer_Fee","type":"quantitative","title": "Total transfer fee"},
-      {"field":"Team_to","type":"ordinal","title": "Team"}
-    ]
-  }
-  },{
+            "range": [100, 200, 300, 400, 500]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Total_Transfer_Fee",
+            "type": "quantitative",
+            "title": "Total transfer fee",
+            "format":","
+          },
+          {"field": "Team_to", "type": "ordinal", "title": "Team"}
+        ]
+      }
+    },
+    {
       "mark": {
         "type": "text",
         "align": "right",
@@ -53,11 +65,15 @@
           "value": 0
         },
         "tooltip": [
-          {"field":"Total_Transfer_Fee","type":"quantitative","title": "Total transfer fee"},
-      {"field":"Team_to","type":"ordinal","title": "Team"}
+          {
+            "field": "Total_Transfer_Fee",
+            "type": "quantitative",
+            "title": "Total transfer fee",
+            "format":","
+          },
+          {"field": "Team_to", "type": "ordinal", "title": "Team"}
         ]
       }
     }
   ]
-  
 }
