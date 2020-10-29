@@ -1,12 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "config": {"legend": {"disable": true}},
-  "width": 800,
+  "width": 700,
   "height": 700,
   "title": {"text": "Football stadium in Europe", "fontSize": 25},
   "projection": {
     "type": "equalEarth",
-    "clipExtent": [[0, 0], [800, 700]],
+    "clipExtent": [[0, 0], [700, 700]],
     "translate": [360, 2050],
     "scale": 1900
   },
