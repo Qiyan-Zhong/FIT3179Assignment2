@@ -18,12 +18,14 @@
     },
     {"filter": "datum.Total_Transfer_Fee>300000000"}
   ],
+  "encoding": {
+    "x": {"field": "Team_to", "type": "ordinal", "title": "Team"},
+    "y": {"field": "Total_Transfer_Fee", "type": "quantitative"}
+  },
   "layer": [
     {
       "mark": "circle",
       "encoding": {
-        "x": {"field": "Team_to", "type": "ordinal", "title": "Team"},
-        "y": {"field": "Total_Transfer_Fee", "type": "quantitative"},
         "color": {"field": "Total_Transfer_Fee", "type": "quantitative"},
         "size": {
           "field": "Total_Transfer_Fee",
@@ -31,7 +33,7 @@
           "scale": {
             "type": "threshold",
             "domain": [500000000, 1000000000, 1500000000, 2000000000],
-            "range": [100, 200, 300, 400, 500]
+            "range": [200, 400, 600, 800, 1000]
           }
         },
         "tooltip": [
@@ -50,7 +52,7 @@
         "type": "text",
         "align": "right",
         "baseline": "middle",
-        "dx": -12,
+        "dx": -20,
         "fontSize": 11.5,
         "fontStyle": "italic"
       },
@@ -59,7 +61,7 @@
         "color": {"value": "black"},
         "opacity": {
           "condition": {
-            "test": "datum['Team_to'] == 'Real Madrid'",
+            "test": "datum['Team_to'] == 'Real Madrid'|| datum['Team_to'] == 'Man City'||datum['Team_to'] == 'Chelsea'||datum['Team_to'] == 'FC Barcelona'||datum['Team_to'] == 'Juventus'||datum['Team_to'] == 'Liverpool'||datum['Team_to'] == 'Man Utd'",
             "value": 1
           },
           "value": 0
