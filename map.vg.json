@@ -1,62 +1,33 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "config": { "legend": { "disable": true } },
-
+  "config": {"legend": {"disable": true}},
   "width": 800,
   "height": 700,
-  "title": { "text": "Football stadium in Europe", "fontSize": 25 },
+  "title": {"text": "Football stadium in Europe", "fontSize": 25},
   "projection": {
     "type": "equalEarth",
-    "clipExtent": [
-      [0, 0],
-      [800, 700]
-    ],
+    "clipExtent": [[0, 0], [800, 700]],
     "translate": [360, 2050],
     "scale": 1900
   },
-
   "layer": [
     {
       "data": {
         "url": "https://raw.githubusercontent.com/Qiyan-Zhong/FIT3179-Week8/main/custom.geo%20.json",
-        "format": { "type": "topojson", "feature": "custom" }
+        "format": {"type": "topojson", "feature": "custom"}
       },
-
-      "mark": { "type": "geoshape", "fill": "lightgray", "stroke": "white" }
-    },
-
-    {
-      "mark": {
-        "type": "text",
-        "align": "right",
-        "baseline": "middle",
-        "dx": -12,
-        "fontSize": 11.5,
-        "fontStyle": "italic"
-      },
-      "encoding": {
-        "text": {"field": "Country", "type": "nominal"},
-        "color": {"value": "black"},
-        "opacity": {
-          "condition": {
-            "test": "datum['Country'] == 'Spain' || datum['Country'] == 'France'",
-            "value": 1
-          },
-          "value": 0
-        },
-        "tooltip": [
-          {"field": "Team", "type": "nominal"}
-        ]
-      }
+      "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
     },
 
     {
       "data": {
         "url": "https://raw.githubusercontent.com/Qiyan-Zhong/FIT3179-Week8/main/stadiums_20150302.csv"
       },
-
       "transform": [
-        { "calculate": "parseInt(datum.Capacity/10000)*10000", "as": "Capacity_Range" }
+        {
+          "calculate": "parseInt(datum.Capacity/10000)*10000",
+          "as": "Capacity_Range"
+        }
       ],
       "selection": {
         "Capacity_number": {
@@ -70,35 +41,34 @@
               "step": 10000
             }
           },
-          "init": { "Capacity_Range": 0 }
+          "init": {"Capacity_Range": 0}
         }
       },
-
-      "mark": { "type": "circle", "tooltip": { "content": "data" } },
-
+      "mark": {"type": "circle", "tooltip": {"content": "data"}},
       "encoding": {
-        "longitude": { "field": "Longitude", "type": "quantitative" },
-        "latitude": { "field": "Latitude", "type": "quantitative" },
+        "longitude": {"field": "Longitude", "type": "quantitative"},
+        "latitude": {"field": "Latitude", "type": "quantitative"},
         "size": {
           "field": "Capacity",
           "type": "quantitative",
-          "scale": { "domain": [30000, 100000], "range": [40, 1000] },
-          "legend": {
-            "orient": "right"
-          }
+          "scale": {"domain": [30000, 100000], "range": [40, 1000]},
+          "legend": {"orient": "right"}
         },
         "color": {
           "condition": {
             "selection": "Capacity_number",
             "field": "Capacity_Range",
-            "scale": {
-              "range": ["green"]
-            }
+            "scale": {"range": ["green"]}
           }
-        }
+        },
+        "tooltip": [
+          {"field": "Stadium", "type": "ordinal"},
+          {"field": "Team", "type": "ordinal"},
+          {"field": "Longitude", "type": "quantitative"},
+          {"field": "Latitude", "type": "quantitative"},
+          {"field": "Capacity", "type": "quantitative"}
+    ]
       }
     }
   ]
-  
-  
 }
