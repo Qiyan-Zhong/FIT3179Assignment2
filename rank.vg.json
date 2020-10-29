@@ -14,10 +14,10 @@
       "name": "Continent_selection",
       "bind": {
         "input": "select",
-        "options": [null, "Brazil", "England", "France", "Germany", "Spain"],
+        "options": [null, "Italy", "England", "France", "Germany", "Spain"],
         "labels": [
           "Show All",
-          "Brazil",
+          "Italy",
           "England",
           "France",
           "Germany",
