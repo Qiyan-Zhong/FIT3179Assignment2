@@ -25,7 +25,8 @@
           {
             "field": "Total_Transfer_Fee",
             "type": "quantitative",
-            "title": "Total transfer fee"
+            "title": "Total transfer fee",
+            "format":","
           }
         ]
       }
