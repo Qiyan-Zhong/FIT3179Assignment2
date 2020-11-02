@@ -2,12 +2,8 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width":630,
   "height": 600,
-  "title": {
-    "text": "Football  Ranked Changed stadium in Europe",
-    "fontSize": 25
-  },
   "data": {
-    "url": "https://raw.githubusercontent.com/Qiyan-Zhong/FIT3179Week9HW/main/fifa_ranking(1).csv"
+    "url": "https://raw.githubusercontent.com/Qiyan-Zhong/FIT3179Assignment2/main/fifa_ranking(1).csv"
   },
   "params": [
     {
