@@ -2,12 +2,8 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 700,
   "height": 500,
-  "title": {
-    "text": "Football transfer fee trend from 2000 to 2019",
-    "fontSize": 25
-  },
   "data": {
-    "url": "https://raw.githubusercontent.com/Qiyan-Zhong/FIT3179WEEK10/main/top250-00-19%20(1).csv"
+    "url": "https://raw.githubusercontent.com/Qiyan-Zhong/FIT3179Assignment2/main/top250-00-19%20(1).csv"
   },
   "transform": [
     {
