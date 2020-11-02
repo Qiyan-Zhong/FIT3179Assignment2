@@ -3,7 +3,6 @@
   "config": {"legend": {"disable": true}},
   "width": 700,
   "height": 700,
-  "title": {"text": "Football stadium in Europe", "fontSize": 25},
   "projection": {
     "type": "equalEarth",
     "clipExtent": [[0, 0], [700, 700]],
@@ -66,7 +65,9 @@
           {"field": "Team", "type": "ordinal"},
           {"field": "Longitude", "type": "quantitative"},
           {"field": "Latitude", "type": "quantitative"},
-          {"field": "Capacity", "type": "quantitative"}
+          {"field": "Capacity", "type": "quantitative"},
+          {"field": "City", "type": "ordinal"},
+          {"field": "Country", "type": "ordinal"}
     ]
       }
     }
